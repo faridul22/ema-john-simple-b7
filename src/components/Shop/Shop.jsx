@@ -16,9 +16,23 @@ const Shop = () => {
 
     useEffect(() => {
         const storedCard = getShoppingCart();
-
-        console.log(storedCard)
-    }, [])
+        const savedCard = [];
+        // step 1: get id of the added Product
+        for (const id in storedCard) {
+            // step 2: get product from products state by using id
+            const addedProduct = products.find(product => product.id === id);
+            if (addedProduct) {
+                // step 3: add quantity 
+                const quantity = storedCard[id];
+                addedProduct.quantity = quantity;
+                // step 4: add the addedProduct to the saved card
+                savedCard.push(addedProduct)
+            }
+            console.log(addedProduct)
+        }
+        // step 5: set the card
+        setCard(savedCard)
+    }, [products])
 
     const handleAddToCard = (product) => {
         // card.push(product) ==> Normal js hilay aivabay kaj hoito
