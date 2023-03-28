@@ -3,7 +3,8 @@ import Product from '../Product/Product';
 import './Shop.css'
 
 const Shop = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+    const [card, setCard] = useState([])
 
     useEffect(() => {
         fetch('products.json')
@@ -12,7 +13,9 @@ const Shop = () => {
     }, [])
 
     const handleAddToCard = (product) => {
-        console.log('click add to card btn', product)
+        // card.push(product) ==> Normal js hilay aivabay kaj hoito
+        const newCard = [...card, product];
+        setCard(newCard)
     }
 
     return (
@@ -28,6 +31,7 @@ const Shop = () => {
             </div>
             <div className="card-container">
                 <h4>Order Summary</h4>
+                <p>Selected Items: {card.length}</p>
             </div>
         </div>
     );
