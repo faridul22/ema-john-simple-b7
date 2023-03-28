@@ -1,8 +1,8 @@
 .product {
+    width: 300px;
+    height: 510px;
     border: 1px solid #95A0A7;
     border-radius: 8px;
-    width: 300px;
-    height: 508px;
     position: relative;
 }
 
@@ -14,7 +14,8 @@
 }
 
 .product_name {
-    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
@@ -29,7 +30,7 @@
 }
 
 .product_info p {
-    margin: 10px 0;
+    margin-top: 5px;
 }
 
 .btn_card {
