@@ -36,7 +36,26 @@ const Shop = () => {
 
     const handleAddToCard = (product) => {
         // card.push(product) ==> Normal js hilay aivabay kaj hoito
-        const newCard = [...card, product];
+
+        // option-1:
+        // const newCard = [...card, product];
+
+        // option-2:
+        // if product doesn't exist in the card, then set quantity = 1
+        // an if exist update quantity by 1
+        let newCard = [];
+        const exists = card.find(pd => pd.id === product.id);
+        if (!exists) {
+            product.quantity = 1;
+            newCard = [...card, product];
+        }
+        else {
+            exists.quantity = exists.quantity + 1;
+            const remaining = card.filter(pd => pd.id !== product.id);
+            newCard = [...remaining, exists];
+        }
+
+
         setCard(newCard)
         addToDb(product.id)
     }
