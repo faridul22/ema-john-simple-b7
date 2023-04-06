@@ -1,10 +1,10 @@
 import React from 'react';
 import './Card.css'
-const Card = ({ card, }) => {
+const Card = ({ card }) => {
     // const card = props.card // Option 1
     // const { card } = props  // Option 2
 
-    console.log(card)
+    // console.log(card)
 
     let totalPrice = 0;
     let totalShipping = 0;

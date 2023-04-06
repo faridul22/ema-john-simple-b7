@@ -28,7 +28,7 @@ const Shop = () => {
                 // step 4: add the addedProduct to the saved card
                 savedCard.push(addedProduct)
             }
-            console.log(addedProduct)
+            // console.log(addedProduct)
         }
         // step 5: set the card
         setCard(savedCard)
