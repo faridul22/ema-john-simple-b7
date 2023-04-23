@@ -1,6 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import './Card.css'
-const Card = ({ card }) => {
+const Card = ({ card, handleClearCard, children }) => {
     // const card = props.card // Option 1
     // const { card } = props  // Option 2
 
@@ -36,6 +38,11 @@ const Card = ({ card }) => {
             <p>Total Shipping: ${totalShipping.toFixed(2)}</p>
             <p>Tax: ${tax.toFixed(2)}</p>
             <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
+            <button className='btn-clear-card' onClick={handleClearCard}>
+                Clear Card
+                <FontAwesomeIcon icon={faTrashAlt} />
+            </button>
+            {children}
         </div>
     );
 };

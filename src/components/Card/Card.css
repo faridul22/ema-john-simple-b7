@@ -4,3 +4,16 @@
     position: sticky;
     top: 0;
 }
+
+.btn-clear-card {
+    width: 90%;
+    background: #FF3030;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 21px;
+    padding: 16px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

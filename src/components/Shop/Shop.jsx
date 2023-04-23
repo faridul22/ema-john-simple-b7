@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
 import Card from '../Card/Card';
 import Product from '../Product/Product';
 import './Shop.css'
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -60,6 +61,11 @@ const Shop = () => {
         addToDb(product.id)
     }
 
+    const handleClearCard = () => {
+        setCard([])
+        deleteShoppingCart()
+    }
+
     return (
         <div className='shop_container'>
             <div className="products-container">
@@ -72,7 +78,14 @@ const Shop = () => {
                 }
             </div>
             <div className="card-container">
-                <Card card={card}></Card>
+                <Card
+                    card={card}
+                    handleClearCard={handleClearCard}
+                >
+                    <Link className='proceed-link' to='/orders'>
+                        <button className='btn-proceed'>Review Order</button>
+                    </Link>
+                </Card>
             </div>
         </div>
     );
